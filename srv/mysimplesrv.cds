@@ -2,10 +2,13 @@ using {approvalWorkflow.hrms as hrms} from '../db/Students';
 
 service mysrvdemo {
 
-    
-    entity StudentSrv as projection on hrms.Students;
+    @readonly
+    entity GetStudent as projection on hrms.Students;
 
-    function myfoobar() returns String;
+    @updateonly
+    entity UpdateStudent as projection on hrms.Students;
+
+    // function myfoobar() returns String;
 
     // function mytoobar() returns String;
 
