@@ -1,4 +1,5 @@
 const cds = require("@sap/cds");
+const { where } = require("@sap/cds/lib/ql/cds-ql");
 const { response } = require("express");
 const { Students } = cds.entities("approvalWorkflow.hrms")
 
@@ -66,6 +67,45 @@ const mysrvdemo = srv => {
         console.log(result);
         return result;
     })
+
+    srv.on("CREATE", "CreateStudent", async (req, res) => {
+        let student = req.data;
+        // transaction through handler created transaction object
+        const txn = cds.transaction(req);
+        const { INSERT, SELECT } = cds.ql;
+        const response = await txn.run(
+                INSERT.into(Students)
+                .entries(student)
+            );
+        if (response === 0) {
+            req.error(500, "Error in updating record");
+        }
+        const createdStudent = await txn.run(
+            SELECT.one.from(Students).where({email:student.email})
+        )
+        console.log(createdStudent);
+        return { message: "Student inserted", createdStudent };
+        // console.log(result);
+        // return result;
+    })
+
+    srv.on("deleteStudent", async (req, res) => {
+        let id = req.data.ID;
+        // transaction through handler created transaction object
+        const txn = cds.transaction(req);
+        const { DELETE } = cds.ql;
+        const deletedRows = await txn.run(
+                DELETE.from(Students).where({ID:id})
+            );
+        if (response === 0) {
+            req.error(500, "Error in deleting record");
+        }
+        return deletedRows > 0;
+        // console.log(result);
+        // return result;
+    })
+
+
 }
 
 module.exports = mysrvdemo;
