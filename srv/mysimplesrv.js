@@ -1,4 +1,5 @@
 const cds = require("@sap/cds");
+const { response } = require("express");
 const { Students } = cds.entities("approvalWorkflow.hrms")
 
 const mysrvdemo = srv => {
@@ -20,20 +21,50 @@ const mysrvdemo = srv => {
         let id = req.data.ID;
         let name = req.data.firstName;
 
-        let {UPDATE} = cds.ql;
+        // transaction through handler created transaction object
+        const txn = cds.transaction(req);
+        const { UPDATE, SELECT } = cds.ql;
 
-        let result = await UPDATE(Students)
-        .set({
-            firstName: name
-        })
-        .where(
-            {
-                ID:id
-            }
+        const updatedRows = await txn.run(
+                UPDATE(Students)
+                .set({ firstName: name }).where({ ID: id }));
+        if (updatedRows === 0) {
+            req.error(500, "Error in updating record");
+        }
+        let result = await txn.run(
+            SELECT.one.from(Students).where({ ID: id })
         );
+
+        // Transaction through new transaction object 
+
+        // let result = await cds.transaction(async txn => {
+        //     const { UPDATE, SELECT } = cds.ql;
+        //     const updatedRows = await txn.run(
+        //         UPDATE(Students)
+        //             .set({ firstName: name }).where({ ID: id }));
+        //     if (updatedRows === 0) {
+        //         req.error(500, "Error in updating record");
+        //     }
+        //     return txn.run(
+        //         SELECT.one.from(Students).where({ ID: id })
+        //     );
+        // });
+
+        // let result = await txn.run(
+        //     UPDATE(Students)
+        //         .set({firstName: name}).where({ ID: id }))
+        //         .then((resolve) => {
+        //             if (typeof resolve !== "undefined") {
+        //                 return req.data;
+        //             } else {
+        //                 req.error(500, "Error in updating record");
+        //             }
+        //         }).catch((err) => {
+        //             req.error("Something went wrong");
+        //         });
+
         console.log(result);
         return result;
-
     })
 }
 
