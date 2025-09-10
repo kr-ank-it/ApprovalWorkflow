@@ -1,5 +1,5 @@
 using mysrvdemo as service from '../../srv/mysimplesrv';
-annotate service.StudentSrv with @(
+annotate service.GetStudent with @(
     UI.FieldGroup #GeneratedGroup : {
         $Type : 'UI.FieldGroupType',
         Data : [

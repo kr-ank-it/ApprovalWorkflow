@@ -1,7 +1,7 @@
 const cds = require("@sap/cds");
 const { where } = require("@sap/cds/lib/ql/cds-ql");
 const { response } = require("express");
-const { Students } = cds.entities("approvalWorkflow.hrms")
+const { Students } = cds.entities("approvalWorkflow.hrms");
 
 const mysrvdemo = srv => {
 
@@ -9,7 +9,7 @@ const mysrvdemo = srv => {
     //     return "Hello world" + " " + req.data.firstname + " " + req.data.lastname;
     // })
 
-    srv.on("READ", "StudentSrv", (req, res) => {
+    srv.on("READ", "GetStudent", (req, res) => {
         // console.log(req);
         // const { SELECT } = cds.ql;
         // const result = cds.run(SELECT.from(Students));

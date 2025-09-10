@@ -6,6 +6,8 @@ entity Students : cuid, managed {
     @unique
     email : String @assert.format : '^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$';
     firstName: String;
+    
+    @cds.api.ignore
     lastName: String;
     dateSignUp: type of managed: createdAt;
 }

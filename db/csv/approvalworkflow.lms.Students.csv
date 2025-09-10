@@ -1,0 +1,16 @@
+ID,email,firstName,lastName,dateSignUp
+guid1,john.doe@example.com,John,Doe,2023-01-15T10:00:00Z
+guid2,jane.smith@example.com,Jane,Smith,2023-02-10T12:30:00Z
+guid3,alex.johnson@example.com,Alex,Johnson,2023-03-05T08:15:00Z
+guid4,maria.garcia@example.com,Maria,Garcia,2023-04-18T09:20:00Z
+guid5,li.wei@example.com,Wei,Li,2023-05-25T14:45:00Z
+guid6,ahmed.khan@example.com,Ahmed,Khan,2023-06-12T16:00:00Z
+guid7,sophia.williams@example.com,Sophia,Williams,2023-07-02T11:30:00Z
+guid8,david.brown@example.com,David,Brown,2023-08-22T18:40:00Z
+guid9,emma.jones@example.com,Emma,Jones,2023-09-13T07:50:00Z
+guid10,ryan.miller@example.com,Ryan,Miller,2023-10-03T20:10:00Z
+guid11,lucy.taylor@example.com,Lucy,Taylor,2023-11-19T06:25:00Z
+guid12,henry.anderson@example.com,Henry,Anderson,2023-12-27T13:00:00Z
+guid13,olivia.moore@example.com,Olivia,Moore,2024-01-14T09:45:00Z
+guid14,noah.martin@example.com,Noah,Martin,2024-02-21T15:15:00Z
+guid15,chloe.thomas@example.com,Chloe,Thomas,2024-03-17T17:55:00Z
