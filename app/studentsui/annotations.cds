@@ -1,36 +1,52 @@
 using mysrvdemo as service from '../../srv/mysimplesrv';
-annotate service.GetStudent with @(
-    UI.FieldGroup #GeneratedGroup : {
+using Lms as lmsservice from '../../srv/lmsservice';
+
+annotate lmsservice.Students with @(
+    UI.FieldGroup #BasicInfo : {
         $Type : 'UI.FieldGroupType',
         Data : [
+            
             {
                 $Type : 'UI.DataField',
-                Label : 'email',
-                Value : email,
-            },
-            {
-                $Type : 'UI.DataField',
-                Label : 'firstName',
+                Label : 'First Name',
                 Value : firstName,
             },
             {
                 $Type : 'UI.DataField',
-                Label : 'lastName',
+                Label : 'Last Name',
                 Value : lastName,
             },
             {
                 $Type : 'UI.DataField',
-                Value : dateSignUp,
+                Label : 'Email',
+                Value : email,
             },
+            {
+                $Type : 'UI.DataField',
+                Label: 'Sign up Date',
+                Value : dateSignUp,
+            }
+        ],
+    },
+    UI.FieldGroup #AdditionalInfo : {
+        $Type : 'UI.FieldGroupType',
+        Data : [
+            
         ],
     },
     UI.Facets : [
         {
             $Type : 'UI.ReferenceFacet',
             ID : 'GeneratedFacet1',
-            Label : 'General Information',
-            Target : '@UI.FieldGroup#GeneratedGroup',
+            Label : 'Basic Information',
+            Target : '@UI.FieldGroup#BasicInfo',
         },
+        {
+            $Type : 'UI.ReferenceFacet',
+            ID : 'GeneratedFacet2',
+            Label : 'Enrollment Information',
+            Target : '@UI.FieldGroup#AdditionalInfo',
+        }
     ],
     UI.LineItem : [
         {
@@ -60,4 +76,7 @@ annotate service.GetStudent with @(
         },
     ],
 );
+
+
+
 
