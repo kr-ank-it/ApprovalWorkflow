@@ -27,7 +27,8 @@
     "watch-studentsui": "cds watch --open studentsui/index.html?sap-ui-xx-viewCache=false --livereload false",
     "undeploy": "cf undeploy ApprovalWorkflow --delete-services --delete-service-keys --delete-service-brokers",
     "build": "rimraf resources mta_archives && mbt build --mtar archive",
-    "deploy": "cf deploy mta_archives/archive.mtar --retries 1"
+    "deploy": "cf deploy mta_archives/archive.mtar --retries 1",
+    "watch-phoenix": "cds watch --open phoenix/index.html?sap-ui-xx-viewCache=false --livereload false"
   },
   "cds": {
     "requires": {

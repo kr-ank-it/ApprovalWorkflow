@@ -1,6 +1,26 @@
 {
-  "scopes": [],
+  "scopes": [
+    {
+      "name": "$XSAPPNAME.Admin",
+      "description": "Admin role with full access"
+    },
+    {
+      "name": "$XSAPPNAME.User",
+      "description": "Regular user with limited access"
+    }
+  ],
   "attributes": [],
-  "role-templates": [],
+  "role-templates": [
+    {
+      "name": "Admin",
+      "description": "Administrator",
+      "scope-references": ["$XSAPPNAME.Admin"]
+    },
+    {
+      "name": "User",
+      "description": "Regular user",
+      "scope-references": ["$XSAPPNAME.User"]
+    }
+  ],
   "authorities-inheritance": false
 }
