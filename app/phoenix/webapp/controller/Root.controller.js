@@ -9,6 +9,10 @@ sap.ui.define([
 
             let aData = [
                 {
+                    key: "Students",
+                    value: "Students"
+                },
+                {
                     key: "Dashboard",
                     value: "Dashboard"
                 },

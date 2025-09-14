@@ -144,6 +144,13 @@
           "target": [
             "Products"
           ]
+        },
+        {
+          "name": "Students",
+          "pattern": "Students",
+          "target": [
+            "Students"
+          ]
         }
       ],
       "targets": {
@@ -160,6 +167,13 @@
         },
         "Products": {
           "name": "Products",
+          "viewType": "XML",
+          "parent": "TargetRoot",
+          "controlId": "dynamicContent",
+          "controlAggregation": "pages"
+        },
+        "Students": {
+          "name": "Students",
           "viewType": "XML",
           "parent": "TargetRoot",
           "controlId": "dynamicContent",

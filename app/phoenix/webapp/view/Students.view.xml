@@ -1,0 +1,35 @@
+<mvc:View
+    controllerName="phoenix.controller.Students"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:l="sap.ui.layout"
+    xmlns="sap.m"
+    xmlns:f="sap.f"
+    xmlns:core="sap.ui.core"
+    xmlns:card="sap.f.cards"
+    xmlns:commons="sap.suite.ui.commons"
+    id="Students"
+>
+    <Page title="Students">
+        <content>
+            <commons:Timeline
+                id="idTimeline"
+                enableDoubleSided="true"
+                groupBy="dateSignUp"
+                growingThreshold="5"
+                content="{/Students}"
+            >
+                <commons:content>
+                    <commons:TimelineItem
+                        id="idTemplateItem"
+                        dateTime="{dateSignUp}"
+                        title="{firstName} {lastName}"
+                        userNameClickable="true"
+                        userNameClicked="onUserNameClick"
+                        select="onPressItems"
+                        text="{email}"
+                    />
+                </commons:content>
+            </commons:Timeline>
+        </content>
+    </Page>
+</mvc:View>

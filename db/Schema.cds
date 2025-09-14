@@ -7,7 +7,7 @@ entity Students : cuid, managed {
     email: String;
     firstName: String;
     lastName: String;
-    dateSignUp: type of managed: createdAt;
+    dateSignUp: Date;
     enrollment: Association to many Enrollments on enrollment.student = $self;
 }
 
