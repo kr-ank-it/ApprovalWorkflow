@@ -6,33 +6,53 @@ sap.ui.define([
 
     return Controller.extend("phoenix.controller.Root", {
         onInit() {
-            
+
             let aData = [
                 {
-                    key:"Products",
+                    key: "Products",
                     value: "Products"
                 },
                 {
-                    key:"Categories",
+                    key: "Categories",
                     value: "Categories"
                 },
                 {
-                    key:"Customers",
+                    key: "Customers",
                     value: "Customers"
                 },
                 {
-                    key:"Orders",
+                    key: "Orders",
                     value: "Orders"
                 },
                 {
-                    key:"Suppliers",
+                    key: "Suppliers",
                     value: "Suppliers"
                 }
             ];
             let oOptionsModel = new JSONModel(aData);
             this.getView().setModel(oOptionsModel, "oOptionsModel");
+            this.showContents(null);
+            
         },
-        onShowProducts(){
+
+        showContents(oEvent) {
+            debugger;
+            if(!oEvent){
+                this.getOwnerComponent().getRouter().navTo("RouteDashboard");
+                return;    
+            }
+
+            const sKey = oEvent.getParameter("item").getKey();
+            if (sKey === "Products") {
+                this.getOwnerComponent().getRouter().navTo("RouteProducts");
+            } else if (sKey === "Categories") {
+                this.getOwnerComponent().getRouter().navTo("Categories");
+            } else {
+                this.getOwnerComponent().getRouter().navTo("RouteDashboard");
+            }
+        },
+
+        onShowProducts() {
             console.log("Showing products");
         }
     });

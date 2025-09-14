@@ -1,0 +1,61 @@
+<mvc:View
+    controllerName="phoenix.controller.Products"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:l="sap.ui.layout"
+    xmlns="sap.m"
+    xmlns:f="sap.f"
+    xmlns:core="sap.ui.core"
+    xmlns:card="sap.f.cards"
+    id="Products"
+>
+    <Page
+        title="Products"
+    >
+        <content>
+        <!-- <HBox items = "{NorthwindModel>/Products}">
+        <f:Card
+                        class="sapUiMediumMargin"
+                        width="300px"
+                    >
+                        <f:header>
+                            <card:Header
+                                title="{NorthWindModel>/ProductName}"
+                                iconSrc="sap-icon://factory"
+                                press="onShowProducts"
+                            />
+                        </f:header>
+                        <f:content>
+                            
+                        </f:content>
+                    </f:Card>
+        </HBox> -->
+        <f:GridContainer
+    items="{
+        path: 'NorthwindModel>/Products'
+    }"
+>
+    <!-- <f:layout>
+        <f:GridContainerSettings
+            rowSize="25rem"
+            columnSize="25rem"
+            gap="1rem"
+        />
+    </f:layout> -->
+    <f:items>
+        <f:Card width="100%">
+            <f:header>
+                <card:Header
+                    title="{NorthwindModel>ProductName}"
+                    subtitle="Price: {NorthwindModel>UnitPrice}"
+                />
+            </f:header>
+            <f:content>
+                <Text text="Units in stock: {NorthwindModel>UnitsInStock}" />
+            </f:content>
+        </f:Card>
+    </f:items>
+</f:GridContainer>
+                    
+        </content>
+    </Page>
+</mvc:View>

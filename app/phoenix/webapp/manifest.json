@@ -129,12 +129,40 @@
           "target": [
             "TargetRoot"
           ]
+        },
+        {
+          "name": "RouteDashboard",
+          "pattern": "Dashboard",
+          "target": [
+            "Dashboard"
+          ]
+        },
+        {
+          "name": "RouteProducts",
+          "pattern": "Products",
+          "target": [
+            "Products"
+          ]
         }
       ],
       "targets": {
         "TargetRoot": {
           "id": "Root",
           "name": "Root"
+        },
+        "Dashboard": {
+          "name": "Dashboard",
+          "viewType": "XML",
+          "parent": "TargetRoot",
+          "controlId": "dynamicContent",
+          "controlAggregation": "pages"
+        },
+        "Products": {
+          "name": "Products",
+          "viewType": "XML",
+          "parent": "TargetRoot",
+          "controlId": "dynamicContent",
+          "controlAggregation": "pages"
         }
       }
     },

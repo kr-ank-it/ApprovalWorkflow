@@ -1,0 +1,145 @@
+<mvc:View
+    controllerName="phoenix.controller.Dashboard"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:l="sap.ui.layout"
+    xmlns="sap.m"
+    xmlns:f="sap.f"
+    xmlns:core="sap.ui.core"
+    xmlns:card="sap.f.cards"
+    id="Dashboard"
+>
+    <Page
+        title="Dashboard"
+    >
+        <content>
+                    <f:Card
+                        class="sapUiMediumMargin"
+                        width="300px"
+                    >
+                        <f:header>
+                            <card:Header
+                                title="Products"
+                                iconSrc="sap-icon://factory"
+                                press="onShowProducts"
+                            />
+                        </f:header>
+                        <f:content>
+                            <List
+                                class="sapUiSmallMarginBottom"
+                                showSeparators="None"
+                                items="{path:'NorthwindModel>/Products', length:3}"
+                            >
+                                <CustomListItem>
+                                    <HBox
+                                        alignItems="Center"
+                                        justifyContent="SpaceBetween"
+                                    >
+                                        <VBox
+                                            class="sapUiSmallMarginBegin sapUiSmallMarginTopBottom"
+                                        >
+                                            <Title
+                                                level="H3"
+                                                text="{path:'NorthwindModel>ProductName'}"
+                                            />
+                                            <Text
+                                                text="{NorthwindModel>QuantityPerUnit}"
+                                            />
+                                        </VBox>
+                                        <ObjectStatus
+                                            class="sapUiTinyMargin sapUiSmallMarginEnd"
+                                            text="${NorthwindModel>UnitPrice}"
+                                            state="{=${NorthwindModel>UnitPrice} > 10 ? 'Success': 'Warning'}"
+                                        />
+                                    </HBox>
+                                </CustomListItem>
+                            </List>
+                        </f:content>
+                    </f:Card>
+                    <f:Card
+                        class="sapUiMediumMargin"
+                        width="300px"
+                    >
+                        <f:header>
+                            <card:Header
+                                title="Categories"
+                                iconSrc="sap-icon://group"
+                            />
+                        </f:header>
+                        <f:content>
+                            <List
+                                class="sapUiSmallMarginBottom"
+                                showSeparators="None"
+                                id="CategoryList"
+                                items="{path:'NorthwindModel>/Categories', length: 3}"
+                            >
+                                <CustomListItem>
+                                    <HBox
+                                        alignItems="Center"
+                                        justifyContent="SpaceBetween"
+                                    >
+                                        <VBox
+                                            class="sapUiSmallMarginBegin sapUiSmallMarginTopBottom"
+                                        >
+                                            <Title
+                                                level="H3"
+                                                text="{path:'NorthwindModel>CategoryName'}"
+                                            />
+                                            <Text
+                                                text="{NorthwindModel>Description}"
+                                            />
+                                        </VBox>
+                                        <ObjectStatus
+                                            class="sapUiTinyMargin sapUiSmallMarginEnd"
+                                            text="{NorthwindModel>CategoryID}"
+                                        />
+                                    </HBox>
+                                </CustomListItem>
+                            </List>
+                        </f:content>
+                    </f:Card>
+
+                    <f:Card
+                        class="sapUiMediumMargin"
+                        width="300px"
+                    >
+                        <f:header>
+                            <card:Header
+                                title="Suppliers"
+                                iconSrc="sap-icon://supplier"
+                                press="onShowCategories"
+                            />
+                        </f:header>
+                        <f:content>
+                            <List
+                                class="sapUiSmallMarginBottom"
+                                showSeparators="None"
+                                items="{path:'NorthwindModel>/Suppliers', length: 3}"
+                            >
+                                <CustomListItem>
+                                    <HBox
+                                        alignItems="Center"
+                                        justifyContent="SpaceBetween"
+                                    >
+                                        <VBox
+                                            class="sapUiSmallMarginBegin sapUiSmallMarginTopBottom"
+                                        >
+                                            <Title
+                                                level="H3"
+                                                text="{path:'NorthwindModel>CompanyName'}"
+                                            />
+                                            <Text
+                                                text="{NorthwindModel>Address}, {NorthwindModel>City}"
+                                            />
+                                        </VBox>
+                                        <!-- <ObjectStatus
+                                            class="sapUiTinyMargin sapUiSmallMarginEnd"
+                                            text="{NorthwindModel>CategoryID}"
+                                        /> -->
+                                    </HBox>
+                                </CustomListItem>
+                            </List>
+                        </f:content>
+                    </f:Card>   
+        </content>
+    </Page>
+</mvc:View>
