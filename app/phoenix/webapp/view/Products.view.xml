@@ -8,54 +8,77 @@
     xmlns:card="sap.f.cards"
     id="Products"
 >
-    <Page
-        title="Products"
-    >
+    <Page title="Products">
         <content>
-        <!-- <HBox items = "{NorthwindModel>/Products}">
-        <f:Card
-                        class="sapUiMediumMargin"
-                        width="300px"
+            <f:GridContainer
+            id="ProductsList"
+                items="{
+        path: 'NorthwindModel>/Products',
+        parameters: {
+        $top:10,
+        expand:'Category, Supplier'
+        }
+    }"
+            >
+                <f:layout>
+                    <f:GridContainerSettings
+                        rowSize="10rem"
+                        columnSize="15rem"
+                        gap="1rem"
+                    />
+                </f:layout>
+
+                <f:items>
+                    <f:Card
+                        width="100%"
+                        height="auto"
+                        class="sapUiSmallMargin"
                     >
                         <f:header>
-                            <card:Header
-                                title="{NorthWindModel>/ProductName}"
-                                iconSrc="sap-icon://factory"
-                                press="onShowProducts"
-                            />
+                            <card:Header title="{NorthwindModel>ProductName}" />
                         </f:header>
                         <f:content>
-                            
+                            <VBox
+
+                                class="sapUiSmallMargin"
+                                justifyContent="SpaceBetween"
+                            >
+                                <Link
+                                    press="showProductsFromCategories"
+                                    text="Category:{NorthwindModel>Category/CategoryName}"
+                                    tooltip="Check products in {NorthwindModel>Category/CategoryName}"
+                                />
+                                <Image
+                                    src="{path:'NorthwindModel>Category/Picture', formatter:'.formatter.categoryPicture'}"
+                                    tooltip="Check products in {NorthwindModel>Supplier/CompanyName}"
+                                    
+                                />
+                                <Link
+                                    press="showProductsFromSuppliers"
+                                    text="Supplier: {NorthwindModel>Supplier/CompanyName}"
+                                    tooltip="Check products in {NorthwindModel>Supplier/CompanyName}"
+                                />
+
+                                
+
+                                <ObjectStatus
+                                    text="Units in stock: {NorthwindModel>UnitsInStock}"
+                                    state="{= ${NorthwindModel>UnitsInStock} &lt;= 10 ? 'Error' 
+                        : ${NorthwindModel>UnitsInStock} &lt;= 20 ? 'Warning' : 'Success'}"
+                                />
+                                <Text
+                                    text="1 unit has: {NorthwindModel>QuantityPerUnit}"
+                                />
+                                <ObjectStatus
+                                    text="${NorthwindModel>UnitPrice}"
+                                    state="{= ${NorthwindModel>UnitPrice} &lt;= 10 ? 'Success' 
+                        : ${NorthwindModel>UnitPrice} &lt;= 20 ? 'Warning' : 'Error'}"
+                                />
+                            </VBox>
                         </f:content>
                     </f:Card>
-        </HBox> -->
-        <f:GridContainer
-    items="{
-        path: 'NorthwindModel>/Products'
-    }"
->
-    <!-- <f:layout>
-        <f:GridContainerSettings
-            rowSize="25rem"
-            columnSize="25rem"
-            gap="1rem"
-        />
-    </f:layout> -->
-    <f:items>
-        <f:Card width="100%">
-            <f:header>
-                <card:Header
-                    title="{NorthwindModel>ProductName}"
-                    subtitle="Price: {NorthwindModel>UnitPrice}"
-                />
-            </f:header>
-            <f:content>
-                <Text text="Units in stock: {NorthwindModel>UnitsInStock}" />
-            </f:content>
-        </f:Card>
-    </f:items>
-</f:GridContainer>
-                    
+                </f:items>
+            </f:GridContainer>
         </content>
     </Page>
 </mvc:View>

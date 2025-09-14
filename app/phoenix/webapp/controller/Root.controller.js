@@ -9,6 +9,10 @@ sap.ui.define([
 
             let aData = [
                 {
+                    key: "Dashboard",
+                    value: "Dashboard"
+                },
+                {
                     key: "Products",
                     value: "Products"
                 },
@@ -36,20 +40,14 @@ sap.ui.define([
         },
 
         showContents(oEvent) {
-            debugger;
+            let oRoute;
             if(!oEvent){
-                this.getOwnerComponent().getRouter().navTo("RouteDashboard");
-                return;    
+                oRoute = 'Dashboard';
+            }else{
+                oRoute = oEvent.getParameter("item").getKey()
             }
+            this.getOwnerComponent().getRouter().navTo(oRoute);
 
-            const sKey = oEvent.getParameter("item").getKey();
-            if (sKey === "Products") {
-                this.getOwnerComponent().getRouter().navTo("RouteProducts");
-            } else if (sKey === "Categories") {
-                this.getOwnerComponent().getRouter().navTo("Categories");
-            } else {
-                this.getOwnerComponent().getRouter().navTo("RouteDashboard");
-            }
         },
 
         onShowProducts() {

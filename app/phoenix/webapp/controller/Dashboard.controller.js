@@ -7,7 +7,6 @@ sap.ui.define([
     return Controller.extend("phoenix.controller.Dashboard", {
         onInit() {
 
-            debugger;
             
         }
     });

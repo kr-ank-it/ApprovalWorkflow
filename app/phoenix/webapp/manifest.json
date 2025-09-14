@@ -120,7 +120,8 @@
         "viewType": "XML",
         "path": "phoenix.view",
         "async": true,
-        "viewPath": "phoenix.view"
+        "viewPath": "phoenix.view",
+        "clearControlAggregation": true
       },
       "routes": [
         {
@@ -131,14 +132,14 @@
           ]
         },
         {
-          "name": "RouteDashboard",
+          "name": "Dashboard",
           "pattern": "Dashboard",
           "target": [
             "Dashboard"
           ]
         },
         {
-          "name": "RouteProducts",
+          "name": "Products",
           "pattern": "Products",
           "target": [
             "Products"
