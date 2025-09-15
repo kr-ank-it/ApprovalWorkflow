@@ -14,12 +14,16 @@
     {
       "name": "Admin",
       "description": "Administrator",
-      "scope-references": ["$XSAPPNAME.Admin"]
+      "scope-references": [
+        "$XSAPPNAME.Admin"
+      ]
     },
     {
       "name": "User",
       "description": "Regular user",
-      "scope-references": ["$XSAPPNAME.User"]
+      "scope-references": [
+        "$XSAPPNAME.User"
+      ]
     }
   ],
   "authorities-inheritance": false

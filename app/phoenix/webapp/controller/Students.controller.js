@@ -6,7 +6,6 @@ sap.ui.define([
 
     return Controller.extend("phoenix.controller.Students", {
         onInit() {
-
             
         }
     });

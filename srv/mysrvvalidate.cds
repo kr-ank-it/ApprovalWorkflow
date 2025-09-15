@@ -10,4 +10,4 @@ extend service mysrvdemo with @(impl:'srv/mysrvvalidate.js'){
         lastName,
         firstName ||' '|| lastName as fullName:String
     }
-} 
+}

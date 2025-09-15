@@ -6,6 +6,7 @@
   "license": "UNLICENSED",
   "private": true,
   "dependencies": {
+    "@cap-js/hana": "^2.2.0",
     "@sap/cds": "^9",
     "@sap/xssec": "^4",
     "express": "^4",
@@ -32,14 +33,27 @@
     "watch-phoenix": "cds watch --open phoenix/index.html?sap-ui-xx-viewCache=false --livereload false"
   },
   "cds": {
-    "requires": {
-      "[production]": {
-        "auth": "xsuaa"
-      },
-      "connectivity": true,
-      "destinations": true
-    }
-  },
+  "requires": {
+    "db": {
+      "kind": "hana",
+      "model": ["db/schema.cds"],
+      "credentials": {
+        "user": "${HDI_USER}",
+        "password": "${HDI_PASSWORD}",
+        "schema": "${HDI_SCHEMA}",
+        "host": "${HDI_HOST}",
+        "port": "${HDI_PORT}",
+        "encrypt": "${HDI_ENCRYPT}",
+        "sslValidateCertificate": "${HDI_SSLVALIDATE}"
+      }
+    },
+    "[production]": {
+      "auth": "xsuaa"
+    },
+    "connectivity": true,
+    "destinations": true
+  }
+},
   "workspaces": [
     "app/*"
   ],
