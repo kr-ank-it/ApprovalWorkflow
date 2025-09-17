@@ -158,6 +158,13 @@
           "target": [
             "Orders"
           ]
+        },
+        {
+          "name": "Categories",
+          "pattern": "Categories",
+          "target": [
+            "Categories"
+          ]
         }
       ],
       "targets": {
@@ -188,6 +195,13 @@
         },
         "Orders":{
           "name": "Orders",
+          "viewType": "XML",
+          "parent": "TargetRoot",
+          "controlId": "dynamicContent",
+          "controlAggregation": "pages"
+        },
+        "Categories":{
+          "name": "Categories",
           "viewType": "XML",
           "parent": "TargetRoot",
           "controlId": "dynamicContent",

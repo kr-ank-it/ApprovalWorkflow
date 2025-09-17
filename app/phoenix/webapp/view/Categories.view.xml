@@ -1,0 +1,62 @@
+<mvc:View
+    controllerName="phoenix.controller.Categories"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:l="sap.ui.layout"
+    xmlns="sap.m"
+    xmlns:f="sap.f"
+    xmlns:core="sap.ui.core"
+    xmlns:card="sap.f.cards"
+    id="Categories"
+>
+    <Page title="Categories">
+        <content>
+            <f:GridContainer
+            id="ProductsList"
+                items="{
+        path: 'NorthwindModel>/Categories',
+        parameters: {
+        $top:10
+        }
+    }"
+            >
+                <f:layout>
+                    <f:GridContainerSettings
+                        rowSize="10rem"
+                        columnSize="15rem"
+                        gap="1rem"
+                    />
+                </f:layout>
+
+                <f:items>
+                    <f:Card
+                        width="100%"
+                        height="auto"
+                        class="sapUiSmallMargin"
+                    >
+                        <f:header>
+                            <card:Header title="{NorthwindModel>CategoryName}"
+                            subtitle="{NorthwindModel>Description}"
+                             />
+                            
+                        </f:header>
+                        <f:content>
+                            <VBox
+
+                                class="sapUiSmallMargin"
+                                justifyContent="SpaceBetween"
+                            >
+                                
+                                <Image
+                                    src="{path:'NorthwindModel>Picture', formatter:'.formatter.categoryPicture'}"
+                                    tooltip="Check products in {NorthwindModel>CategoryName}"
+                                    press="onFetchProducts"  
+                                />
+                                
+                            </VBox>
+                        </f:content>
+                    </f:Card>
+                </f:items>
+            </f:GridContainer>
+        </content>
+    </Page>
+</mvc:View>
