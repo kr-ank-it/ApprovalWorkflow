@@ -1,25 +1,53 @@
-# Getting Started
+# CAPM Project
 
-Welcome to your new project.
+This project demonstrates the **Cloud Application Programming Model (CAPM)** with multiple services, a service extender for validations, and two UI applications (Fiori Elements and Custom UI5). It is backed by an **SQLite 3 in-memory database** for local development and testing.  
 
-It contains these folders and files, following our recommended project layout:
+---
 
-File or Folder | Purpose
----------|----------
-`app/` | content for UI frontends goes here
-`db/` | your domain models and data go here
-`srv/` | your service models and code go here
-`package.json` | project metadata and configuration
-`readme.md` | this getting started guide
+## 📌 Project Overview
 
+### 🔹 Backend (CAPM Services)
+- **Service 1** – Core service exposing entities and operations.  
+- **Service Extender** – Adds custom validations and logic extending **Service 1**.  
+- **Service 2** – Additional service providing complementary functionality.  
+- **Database** – Uses **SQLite 3** in-memory DB for persistence during runtime.  
 
-## Next Steps
+---
 
-- Open a new terminal and run `cds watch`
-- (in VS Code simply choose _**Terminal** > Run Task > cds watch_)
-- Start adding content, for example, a [db/schema.cds](db/schema.cds).
+### 🔹 Frontend (UI Applications)
 
+1. **Fiori Elements Application**  
+   - Purely built on **CAPM exposed services**.  
+   - Automatically generates UI based on annotations.  
+   - Provides a low-code/no-code experience for consuming CAP services.  
 
-## Learn More
+2. **Custom UI5 Application**  
+   - Uses both **CAP services** and the **Northwind OData service**.  
+   - Implements **parent-child view navigation**:  
+     - Views are pushed from the **parent page** into the navigation stack.  
+     - Also supports **root container view pushing** for better user experience.  
+   - Offers flexibility and advanced UI capabilities beyond Fiori Elements.  
 
-Learn more at https://cap.cloud.sap/docs/get-started/.
+---
+
+## ⚙️ Technologies Used
+- **Backend**: SAP CAP (Node.js)  
+- **Database**: SQLite 3 (in-memory)  
+- **UI**:  
+  - SAP Fiori Elements  
+  - SAPUI5 (Custom)  
+- **External Service**: Northwind OData  
+
+---
+
+## 🚀 Getting Started
+
+### Prerequisites
+- Node.js (LTS recommended)  
+- SQLite 3  
+- SAP Fiori / UI5 tools (for running UI apps)  
+
+### Installation
+```bash
+# Install project dependencies
+npm install
